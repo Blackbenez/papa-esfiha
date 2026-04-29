@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido Online - Papa Esfiha</title>
+
+    <style>
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #d8a707;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            background: rgb(228, 176, 6);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 450px;
+            width: 100%;
+        }
+
+        h1 { color: #d35400; text-align: center; margin-bottom: 5px; }
+        p.subtitle { text-align: center; color: #666; margin-bottom: 25px; }
+
+        .section-title {
+            border-left: 4px solid #e67e22;
+            padding-left: 10px;
+            margin: 25px 0 15px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"], input[type="tel"], select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .item-menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px activeborder #f0f0f0;
+        }
+
+        .item-info { display: flex; flex-direction: column; }
+        .item-name { font-weight: 500; color: #2c3e50; }
+        .item-price { font-size: 0.9em; color: #1a2e22; }
+
+        .qtd-esfiha {
+            width: 60px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .total-box {
+            background: #fff4e6;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .total-box h2 { margin: 0; color: #d35400; }
+
+        .whatsapp-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #btnZap {
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        #btnZap:hover {
+            transform: scale(1.1);
+        }
+
+        .btn-text {
+            display: block;
+            font-size: 0.8em;
+            color: #25D366;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Papa Esfiha Sabores</h1>
+    <p class="subtitle">Escolha suas delícias e peça pelo WhatsApp</p>
+
+    <form id="formPedido">
+        <div class="section-title">Seus Dados</div>
+        <input type="text" id="nome" placeholder=" Nome Completo e apelido " required>
+        <input type="tel" id="tel" placeholder="Seu WhatsApp (DDD + Número)" required>
+
+        <div class="section-title">Esfihas Salgadas</div>
+        
+        <div class="item-menu">
+            <div class="item-info">
+                <span class="item-name">Carne Tradicional</span>
+                <span class="item-price">R$ 4.50</span>
+            </div>
+            <input type="number" class="qtd-esfiha" data-nome="Carne" data-preco="4.50" min="0" value="0">
+        </div>
+
+        <div class="item-menu">
+            <div class="item-info">
+                <span class="item-name">Queijo Muçarela</span>
+                <span class="item-price">R$ 5.00</span>
+            </div>
+            <input type="number" class="qtd-esfiha" data-nome="Queijo" data-preco="5.00" min="0" value="0">
+        </div>
+
+        <div class="item-menu">
+            <div class="item-info">
+                <span class="item-name">Frango c/ Catupiry</span>
+                <span class="item-price">R$ 5.50</span>
+            </div>
+            <input type="number" class="qtd-esfiha" data-nome="Frango" data-preco="5.50" min="0" value="0">
+        </div>
+
+        <div class="section-title">Esfihas Doces</div>
+        
+        <div class="item-menu">
+            <div class="item-info">
+                <span class="item-name">Chocolate</span>
+                <span class="item-price">R$ 7.00</span>
+            </div>
+            <input type="number" class="qtd-esfiha" data-nome="Chocolate" data-preco="7.00" min="0" value="0">
+        </div>
+
+        <div class="section-title">Pagamento</div>
+        <select id="pagamento" required>
+            <option value="">Selecione a forma de pagamento</option>
+            <option value="Pix">Pix</option>
+            <option value="Cartão (Maquininha)">Cartão (Maquininha)</option>
+            <option value="Dinheiro">Dinheiro</option>
+        </select>
+
+        <div class="total-box">
+            <span>Valor Total do Pedido:</span>
+            <h2 id="valorTotal">R$ 0.00</h2>
+        </div>
+       <div class="whatsapp">
+            <img src="whatsapp.png" 
+                 id="btnZap" 
+                 alt="WhatsApp" 
+                 
+                 width="80" 
+                 height="80" 
+
+
+                 title="Enviar Pedido">
+                 <a href="https://wa.me/5521997112413" </a>
+            <span class="btn-text">CLIQUE PARA ENVIAR PEDIDO</span>
+        </div>
+
+
+        <a href="/" style="text-decoration: none; color: rgb(66, 68, 75); font-weight: bold; font-size: x-large;">
+   &#8962;            *********Voltar ao Início *********
+</a>
+
+    </form>
+</div>
